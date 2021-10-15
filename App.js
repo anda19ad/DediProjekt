@@ -17,6 +17,7 @@ import {createStackNavigator} from "@react-navigation/stack";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {NavigationContainer} from "@react-navigation/native";
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import {Button} from "react-native-web";
 
 
 const firebaseConfig = {
@@ -31,7 +32,7 @@ const firebaseConfig = {
 
 
 
-function App() {
+function App({navigation}) {
 
     //Initializing Firebase and making sure that only one firebase is initialized
   if (!firebase.apps.length) {
@@ -60,15 +61,14 @@ function App() {
         };
     }, []);
 
-    //if the user is not logged in return to BeforeLogin
-    if (user.loggedIn){
+    //if the user is not logged in return to BeforeLogin. Seeing some trouble with directing outside the stacknavigator!
+    /*if (user.loggedIn){
         return <ProfileScreen/>
-    }
+    }*/
     //return user.loggedIn ? <ProfileScreen /> : <BeforeLogin/> ;
 
     const Stack = createStackNavigator ();
     const Tab = createBottomTabNavigator();
-
 
     const stackNav = ()=> {
         return(
@@ -81,15 +81,29 @@ function App() {
         )
     };
 
+    const forNavigationContainer = ()=>{
+        if(user.loggedIn){
+            return(
+                <Tab.Navigator initialRouteName = "Login">
+                    <Tab.Screen name={'Login'} component={LogIn} options={{tabBarIcon: () => ( <Ionicons name="log-in-outline" size={20} />),headerShown:null}}/>
+                    <Tab.Screen name={'Sign Up'} component={SignUp} options={{tabBarIcon: () => ( <Ionicons name="add" size={20} />),headerShown:null}}/>
+                </Tab.Navigator>
+        )
+
+        }else{
+            return(
+                <Tab.Navigator initialRouteName = "Profile Screen">
+                    <Tab.Screen name={'Edit Profile'} component={EditProfile} options={{tabBarIcon: () => ( <Ionicons name="home-outline" size={20} />),headerShown:null}}/>
+                    <Tab.Screen name={'Profile Screen'} component={ProfileScreen} options={{tabBarIcon: () => ( <Ionicons name="home-outline" size={20} />),headerShown:null}}/>
+                    <Tab.Screen name={'Settings'} component={stackNav} options={{tabBarIcon: () => ( <Ionicons name="settings-outline" size={20} />),headerShown:null}}/>
+                </Tab.Navigator>
+                )
+        }
+    };
+
   return (
       <NavigationContainer>
-          <Tab.Navigator initialRouteName = "Settings">
-              <Tab.Screen name={'Login'} component={LogIn} options={{tabBarIcon: () => ( <Ionicons name="log-in-outline" size={20} />),headerShown:null}}/>
-              <Tab.Screen name={'Sign Up'} component={SignUp} options={{tabBarIcon: () => ( <Ionicons name="add" size={20} />),headerShown:null}}/>
-              <Tab.Screen name={'Edit Profile'} component={EditProfile} options={{tabBarIcon: () => ( <Ionicons name="home-outline" size={20} />),headerShown:null}}/>
-              <Tab.Screen name={'Profile Screen'} component={ProfileScreen} options={{tabBarIcon: () => ( <Ionicons name="home-outline" size={20} />),headerShown:null}}/>
-              <Tab.Screen name={'Settings'} component={stackNav} options={{tabBarIcon: () => ( <Ionicons name="settings-outline" size={20} />),headerShown:null}}/>
-          </Tab.Navigator>
+          {forNavigationContainer()}
       </NavigationContainer>
   );
 

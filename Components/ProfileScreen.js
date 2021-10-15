@@ -30,26 +30,24 @@ function ProfileScreen({navigation}) {
 
     //If it is not possible to access the wanted user
     if (!firebase.auth().currentUser) {
+        //Button for going back to login page if user is not logged ind
         return (
             <View><Text>The user could not be found</Text>
                 <Button onPress={()=>navigateToLogin()} title="Go to login page"/>
             </View>
             )
-
-        //Button for going back to login page
-
     }
 
     return (
-        <View style={styles.container}>
-            {/* Using firebase method to get email from the signed in user. Using the logOut function to log out with a button*/}
-            <Text>Logged in as: {(firebase.auth().currentUser.email)}</Text>
-            <Button onPress={()=>logOut()} title = "Log Out"/>
-            <Button onPress={() => editProfile()} title="Edit your Profile"/>
-            <InterestList/>
-        </View>
+            <View style={styles.container}>
+                {/* Using firebase method to get email from the signed in user. Using the logOut function to log out with a button*/}
+                <Text>Logged in as: {(firebase.auth().currentUser.email)}</Text>
+                <Button onPress={()=>logOut()} title = "Log Out"/>
+                <Button onPress={() => editProfile()} title="Edit your Profile"/>
+                <InterestList/>
+            </View>
+        );
 
-    );
 }
 
 const styles = StyleSheet.create({

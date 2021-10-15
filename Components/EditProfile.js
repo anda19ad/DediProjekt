@@ -1,11 +1,25 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {Button, StyleSheet, Text, View} from 'react-native';
 import firebase from "firebase";
 
 export default function App() {
     //Function for getting current user ID so the information can be changed
     const seeCurrentUser = () => {
 
+    }
+
+    const navigateToLogin = () =>{
+        navigation.navigate('Login')
+    };
+
+    //If it is not possible to access the wanted user
+    if (!firebase.auth().currentUser) {
+        //Button for going back to login page if user is not logged ind
+        return (
+            <View><Text>The user could not be found</Text>
+                <Button onPress={()=>navigateToLogin()} title="Go to login page"/>
+            </View>
+        )
     }
 
     //Variable containing the currentUser
