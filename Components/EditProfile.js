@@ -2,12 +2,13 @@ import React from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
 import firebase from "firebase";
 
-export default function App() {
+export default function App({navigation}) {
     //Function for getting current user ID so the information can be changed
     const seeCurrentUser = () => {
 
     }
 
+    //Navigation function for going to the login screen
     const navigateToLogin = () =>{
         navigation.navigate('Login')
     };
