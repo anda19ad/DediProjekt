@@ -11,6 +11,9 @@ import LogIn from "./Components/LogIn";
 import BeforeLogin from "./Components/BeforeLogin";
 import EditProfile from "./Components/EditProfile";
 import InterestList from "./Components/Interest";
+import Home from "./Components/Home";
+import City from './Components/City';
+
 
 //For navigation
 import {createStackNavigator} from "@react-navigation/stack";
@@ -97,6 +100,7 @@ function App({navigation}) {
                     <Tab.Screen name={'Edit Profile'} component={EditProfile} options={{tabBarIcon: () => ( <Ionicons name="home-outline" size={20} />),headerShown:null}}/>
                     <Tab.Screen name={'Profile Screen'} children={() => <ProfileScreen user={user} />} options={{tabBarIcon: () => ( <Ionicons name="home-outline" size={20} />),headerShown:null}}/>
                     <Tab.Screen name={'Settings'} component={stackNav} options={{tabBarIcon: () => ( <Ionicons name="settings-outline" size={20} />),headerShown:null}}/>
+                    <Tab.Screen name={'Home'} component={Home} options={{tabBarIcon: () => ( <Ionicons name="settings-outline" size={20} />),headerShown:null}}/>
                 </Tab.Navigator>
                 )
         }
