@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, Button, TextInput} from "react-native";
+import {StyleSheet, Text, View, Button, TextInput, Alert} from "react-native";
 import React, {useState, useEffect} from 'react';
 import firebase from "firebase";
 
@@ -12,9 +12,15 @@ function SignUp() {
     const [errorMessage, setErrorMessage] = useState(null);
 
     //Submitting to firebase using a function
-    const submitToFirebase = async () => {
+    const submitToFirebase =  () => {
         try {
-            await firebase.auth().createUserWithEmailAndPassword(email,password).then((data)=>{});
+            firebase
+                .database()
+                .ref('/Users/')
+                .push({ email,password }).then(data => {
+                console.log("ramt")
+                 firebase.auth().createUserWithEmailAndPassword(email,password).then((data)=>{});
+            })
         } catch (error){
             console.log(error)
         }

@@ -21,13 +21,14 @@ import {Button} from "react-native-web";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDSKxwkpeMy0P0weYhKF0Y1rj4Bhs0Pzn8",
-  authDomain: "dediw-80193.firebaseapp.com",
-  projectId: "dediw-80193",
-  storageBucket: "dediw-80193.appspot.com",
-  messagingSenderId: "715759865884",
-  appId: "1:715759865884:web:db0e657b9b5d3b067f8fd9",
-  measurementId: "G-61NCHYYLNG"
+    apiKey: "AIzaSyDSKxwkpeMy0P0weYhKF0Y1rj4Bhs0Pzn8",
+    authDomain: "dediw-80193.firebaseapp.com",
+    databaseURL: "https://dediw-80193-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "dediw-80193",
+    storageBucket: "dediw-80193.appspot.com",
+    messagingSenderId: "715759865884",
+    appId: "1:715759865884:web:db0e657b9b5d3b067f8fd9",
+    measurementId: "G-61NCHYYLNG"
 };
 
 
@@ -94,7 +95,7 @@ function App({navigation}) {
             return(
                 <Tab.Navigator initialRouteName = "Profile Screen">
                     <Tab.Screen name={'Edit Profile'} component={EditProfile} options={{tabBarIcon: () => ( <Ionicons name="home-outline" size={20} />),headerShown:null}}/>
-                    <Tab.Screen name={'Profile Screen'} component={ProfileScreen} options={{tabBarIcon: () => ( <Ionicons name="home-outline" size={20} />),headerShown:null}}/>
+                    <Tab.Screen name={'Profile Screen'} children={() => <ProfileScreen user={user} />} options={{tabBarIcon: () => ( <Ionicons name="home-outline" size={20} />),headerShown:null}}/>
                     <Tab.Screen name={'Settings'} component={stackNav} options={{tabBarIcon: () => ( <Ionicons name="settings-outline" size={20} />),headerShown:null}}/>
                 </Tab.Navigator>
                 )
