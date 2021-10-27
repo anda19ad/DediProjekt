@@ -8,6 +8,7 @@ export default function App({navigation}) {
     // Get current username
     //var user = firebase.auth().currentUser;
 
+
     //For inspiration to upload image https://www.instamobile.io/mobile-development/react-native-firebase-storage/
 
 
