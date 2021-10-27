@@ -31,6 +31,12 @@ export default function App({navigation}) {
     //Variable containing the currentUser
     const currentUser = (firebase.auth().currentUser.email);
 
+    //Finding all object emails
+    const objectUser = []
+
+    //Finding the mail that matches with the logged in user
+
+
     return (
         <View style={styles.container}>
             <Text>Logged in as: {currentUser} </Text>
