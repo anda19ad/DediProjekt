@@ -8,23 +8,46 @@ function SignUp() {
     //Creating variables for the Sign up form
     const [email,setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [firstName,setFirstName] = useState('Inkog');
+    const [lastName, setLastName] = useState('nito');
     const [isCompleted, setCompleted] = useState(false);
     const [errorMessage, setErrorMessage] = useState(null);
 
     //Submitting to firebase using a function
-    const submitToFirebase =  () => {
+    const submitToFirebase = async () => {
         try {
+
+            //Creating a user for authentication and also an object with the unique user id as a property. object when creating an auth user
+            firebase
+                .auth()
+                .createUserWithEmailAndPassword(email,password)
+                .then((res)=>{
+                    firebase.database()
+                        .ref('/Users/')
+                        .push({
+                        uuid: firebase.auth().currentUser.uid,
+                        email,
+                        password,
+                        firstName,
+                        lastName,
+                        })
+                })
+             //This function works but is not enough
+            /*
             firebase
                 .database()
                 .ref('/Users/')
-                .push({ email,password }).then(data => {
-                console.log("ramt")
+                .push({ email,password}).then(data => {
                  firebase.auth().createUserWithEmailAndPassword(email,password).then((data)=>{});
             })
+            */
+
+           // await firebase.auth().createUserWithEmailAndPassword(email, password).then((data)=>{});
+
         } catch (error){
             console.log(error)
         }
-    }
+    };
 
     //Creating submitbutton for later usage
     const submitButton = () => {

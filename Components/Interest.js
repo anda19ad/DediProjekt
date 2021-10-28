@@ -15,7 +15,6 @@ import firebase from "firebase";
                      setUser(snapshot.val())
                  });
          }
-         console.log("Ramt")
 
      },[]);
 
@@ -48,34 +47,6 @@ import firebase from "firebase";
              }}
          />
      )
-
-
-
-     //Getting all users inspired by: https://stackoverflow.com/questions/65409363/how-to-render-user-list-in-react-firebase
-     /*//Currently not working 13-10-2021
-     function printUsers() {
-         var users = firebase.database().ref('/users');
-         console.log(users)
-         users.on('value', (snapshot) => {
-             snapshot.forEach((snap) => {
-                 const userObject = snap.val();
-                 console.log("Andreas")
-                 console.log(userObject + "UserObject");
-                 const email = userObject['email'];
-                 console.log(email);
-                 if (email === 0) {
-                     const newPeople = [...people, userObject];
-                     setPeople(newPeople);
-                 }
-             });
-         });
-     }
-     useEffect(() => {
-         printUsers();
-         console.log(people);
-     }, []);
-     console.log("hej")
-     console.log(printUsers())*/
 
 }
 
