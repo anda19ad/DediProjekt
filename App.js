@@ -11,9 +11,9 @@ import LogIn from "./Components/LogIn";
 import BeforeLogin from "./Components/BeforeLogin";
 import EditProfile from "./Components/EditProfile";
 import InterestList from "./Components/Interest";
-import Home from "./Components/Home";
+import Home from "./views/Home";
 import City from './Components/City';
-
+import Matches from "./views/Matches"
 
 //For navigation
 import {createStackNavigator} from "@react-navigation/stack";
