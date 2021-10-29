@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Component} from 'react';
 import {Button, StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
 import firebase from "firebase";
+import UploadImage from "./FileUpload";
 
 export default function EditProfile({navigation,route}) {
     //Navigation function for going to the login screen
@@ -60,8 +61,8 @@ export default function EditProfile({navigation,route}) {
 
 
     const updateProfile = () =>{
-        const id = "-Mn5dObkz61V-5Kor8sk";
-        const objectId = Object.values(userObject);
+        const id = "-MnBt95DbpSycBN5sRng";
+        const objectId = userObject;
         console.log(objectId);
 
         try{
@@ -70,7 +71,7 @@ export default function EditProfile({navigation,route}) {
                 .database()
                 .ref(`/Users/${id}`)
                 // we use update so that it is only the fields we change that changes
-                .update({ firstName, lastName })
+                .update({ firstName, lastName, _image })
                 .then(
                     navigation.navigate('Profile Screen')
                 )
@@ -107,6 +108,8 @@ export default function EditProfile({navigation,route}) {
                 onChangeText={(lastName) => setLastName(lastName)}
                 style={styles.inputField}
             />
+            <UploadImage/>
+
             {editButton()}
         </View>
     );
