@@ -281,7 +281,7 @@ export default StyleSheet.create({
 	topIconLeft: {
 		fontFamily: ICON_FONT,
 		fontSize: 20,
-		color: WHITE,
+		color: PRIMARY_COLOR,
 		paddingLeft: 20,
 		marginTop: -20,
 		transform: [{ rotate: "90deg" }]
