@@ -1,5 +1,7 @@
 import React from 'react';
 import styles from '../assets/style';
+import firebase from 'firebase';
+
 
 import {
   ScrollView,
@@ -11,6 +13,11 @@ import {
 import ProfileItem from '../Components/ProfileItem';
 import Icon from '../Components/Icon';
 import Demo from '../assets/data/demo.js';
+
+
+  const logOut = async()=>{
+        await firebase.auth().signOut()
+    };
 
 const Profile = () => {
   const {
@@ -34,8 +41,9 @@ const Profile = () => {
         <ImageBackground source={image} style={styles.photo}>
           <View style={styles.top}>
             <TouchableOpacity>
+            <Button onPress={() => logOut()} title="Log out"/>
               <Text style={styles.topIconLeft}>
-                <Icon name="chevronLeft" />
+                <Icon name="Log Out" />
               </Text>
             </TouchableOpacity>
 
