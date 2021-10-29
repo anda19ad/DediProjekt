@@ -1,14 +1,15 @@
 import React from 'react';
 import styles from '../assets/style';
 import firebase from 'firebase';
-
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 import {
   ScrollView,
   View,
   Text,
   ImageBackground,
-  TouchableOpacity
+  TouchableOpacity,
+  Button
 } from 'react-native';
 import ProfileItem from '../Components/ProfileItem';
 import Icon from '../Components/Icon';
@@ -19,7 +20,7 @@ import Demo from '../assets/data/demo.js';
         await firebase.auth().signOut()
     };
 
-const Profile = () => {
+const Profile = ({navigation}) => {
   const {
     age,
     image,
@@ -41,9 +42,8 @@ const Profile = () => {
         <ImageBackground source={image} style={styles.photo}>
           <View style={styles.top}>
             <TouchableOpacity>
-            <Button onPress={() => logOut()} title="Log out"/>
+            <Button onPress={() => logOut()} title="Log out" />
               <Text style={styles.topIconLeft}>
-                <Icon name="Log Out" />
               </Text>
             </TouchableOpacity>
 
@@ -73,7 +73,7 @@ const Profile = () => {
             </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.roundedButton}>
+          <TouchableOpacity style={styles.roundedButton} onPress={() => navigation.navigate('Chat')}>
             <Text style={styles.iconButton}>
               <Icon name="chat" />
             </Text>

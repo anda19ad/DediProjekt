@@ -83,7 +83,8 @@ function App({navigation}) {
                 <Stack.Screen name={'Login'} component={LogIn}/>
                 <Stack.Screen name={'Sign Up'} component={SignUp}/>
                 <Stack.Screen name={'Edit Profile'} component={EditProfile}/>
-                <Stack.Screen name={'Profile Screen'} component={ProfileScreen}/>
+                <Stack.Screen name={'Profile Screen'} component={ProfileScreen}/> 
+                <Stack.Screen name={'Chat'} component={Messages}/>
             </Stack.Navigator>
         )
     };
@@ -106,7 +107,7 @@ function App({navigation}) {
                     <Tab.Screen name={'Home'} component={Home} options={{tabBarIcon: () => ( <Ionicons name="settings-outline" size={20} />),headerShown:null}}/>
                     <Tab.Screen name={'Connections'} component={Matches} options={{tabBarIcon: () => ( <Ionicons name="home-outline" size={20} />),headerShown:null}}/>
                     <Tab.Screen name={'Chat'} component={Messages} options={{tabBarIcon: () => ( <Ionicons name="home-outline" size={20} />),headerShown:null}}/>
-                                        <Tab.Screen name={'Profile'} component={Profile} options={{tabBarIcon: () => ( <Ionicons name="home-outline" size={20} />),headerShown:null}}/>
+                    <Tab.Screen name={'Profile'} component={Profile} options={{tabBarIcon: () => ( <Ionicons name="home-outline" size={20} />),headerShown:null}}/>
 
                 </Tab.Navigator>
                 )
