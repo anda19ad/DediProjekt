@@ -101,6 +101,12 @@ const CardItem = ({
               <Icon name="flash" />
             </Text>
           </TouchableOpacity>
+
+          <TouchableOpacity style={styles.Slider} onSlidingComplete={() => slidingHandler()}>
+            <Text style={styles.like}>
+              <Icon name="Slide" />
+            </Text>
+          </TouchableOpacity>
         </View>
       )}
     </View>

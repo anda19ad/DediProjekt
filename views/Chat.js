@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../assets/styles';
+import styles from '../assets/style';
 
 import {
   ScrollView,
@@ -9,14 +9,14 @@ import {
   View,
   FlatList
 } from 'react-native';
-import Message from '../components/Message';
-import Icon from '../components/Icon';
+import Message from '../Components/Message';
+import Icon from '../Components/Icon';
 import Demo from '../assets/data/demo.js';
 
 const Messages = () => {
   return (
     <ImageBackground
-      source={require('../assets/images/bg.png')}
+      source={require('../images/bg.png')}
       style={styles.bg}
     >
       <View style={styles.containerMessages}>

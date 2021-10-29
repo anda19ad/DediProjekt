@@ -31,7 +31,7 @@ class SliderExample extends React.Component {
 
 class SlidingStartExample extends React.Component {
   state = {
-    slideStartingValue: 0,
-    slideStartingCount: 0,
+    slideStartingValue: 1,
+    slideStartingCount: 10,
   }
 };

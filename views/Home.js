@@ -8,6 +8,8 @@ import styles from '../assets/style';
 import Demo from '../assets/data/demo';
 import Slider from '@react-native-community/slider';
 
+var DemoUsers = Demo;
+
 const Home = () => {
   const swiper = useRef(null)
 
@@ -15,13 +17,12 @@ const slidingHandler = (value) => {
   console.log(value)
   if (value >= 5) {
     console.log('if')
+     
     swiper.current.props.onSwipedRight()
-    console.log(Demo)
-    Demo.pop()
+    DemoUsers.splice();
   } else {
     console.log('else')
     swiper.current.props.onSwipedLeft()}
-        Demo.pop()
 
 }
 
@@ -56,10 +57,11 @@ const slidingHandler = (value) => {
                 onPressLeft={() => { 
                   console.log(swiper),
                   swiper.current.props.onSwipedLeft()}
-                }
+                } 
                 onPressRight={() => swiper.current.props.onSwipedRight()}
               
               />
+              
             </Card>
           ))}
           
@@ -67,7 +69,8 @@ const slidingHandler = (value) => {
         </CardStack>
        {/* Nedenfor laves slideren baseret på react-native-community library*/}
         <Slider
-          style={{width: 200, height: 40}}
+          style={{width: 200, height: 40, paddingTop: 1000, alignItems: 'center'}}
+
           minimumValue={1}
           maximumValue={10}
           minimumTrackTintColor="#0000FF"
