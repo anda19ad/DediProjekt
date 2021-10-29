@@ -29,6 +29,8 @@ function ProfileScreen({navigation}) {
         navigation.navigate('Login')
     };
 
+    //new comment
+
     //If it is not possible to access the wanted user
     if (!firebase.auth().currentUser) {
         //Button for going back to login page if user is not logged ind
