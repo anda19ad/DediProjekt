@@ -1,7 +1,8 @@
 import React from 'react';
-import styles from '../assets';
+import styles from '../assets/style';
+import Slider from '@react-native-community/slider';
 
-import { Text, View, Image, Dimensions, TouchableOpacity } from 'react-native';
+import { Text, View, Image, Dimensions, TouchableOpacity, StyleSheet} from 'react-native';
 import Icon from './Icon';
 
 //importerer card item komponent
@@ -98,6 +99,12 @@ const CardItem = ({
           <TouchableOpacity style={styles.miniButton}>
             <Text style={styles.flash}>
               <Icon name="flash" />
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={styles.Slider} onSlidingComplete={() => slidingHandler()}>
+            <Text style={styles.like}>
+              <Icon name="Slide" />
             </Text>
           </TouchableOpacity>
         </View>

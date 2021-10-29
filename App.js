@@ -11,9 +11,12 @@ import LogIn from "./Components/LogIn";
 import BeforeLogin from "./Components/BeforeLogin";
 import EditProfile from "./Components/EditProfile";
 import InterestList from "./Components/Interest";
-import Home from "./Components/Home";
+import Home from "./views/Home";
 import City from './Components/City';
-
+import Matches from "./views/Matches"
+import Messages from "./views/Chat";
+import Profile from "./views/Profile";
+import ProfileItem from "./Components/ProfileItem"
 
 //For navigation
 import {createStackNavigator} from "@react-navigation/stack";
@@ -80,7 +83,8 @@ function App({navigation}) {
                 <Stack.Screen name={'Login'} component={LogIn}/>
                 <Stack.Screen name={'Sign Up'} component={SignUp}/>
                 <Stack.Screen name={'Edit Profile'} component={EditProfile}/>
-                <Stack.Screen name={'Profile Screen'} component={ProfileScreen}/>
+                <Stack.Screen name={'Profile Screen'} component={ProfileScreen}/> 
+                <Stack.Screen name={'Chat'} component={Messages}/>
             </Stack.Navigator>
         )
     };
@@ -101,6 +105,10 @@ function App({navigation}) {
                     <Tab.Screen name={'Profile Screen'} children={() => <ProfileScreen user={user} />} options={{tabBarIcon: () => ( <Ionicons name="home-outline" size={20} />),headerShown:null}}/>
                     <Tab.Screen name={'Settings'} component={stackNav} options={{tabBarIcon: () => ( <Ionicons name="settings-outline" size={20} />),headerShown:null}}/>
                     <Tab.Screen name={'Home'} component={Home} options={{tabBarIcon: () => ( <Ionicons name="settings-outline" size={20} />),headerShown:null}}/>
+                    <Tab.Screen name={'Connections'} component={Matches} options={{tabBarIcon: () => ( <Ionicons name="home-outline" size={20} />),headerShown:null}}/>
+                    <Tab.Screen name={'Chat'} component={Messages} options={{tabBarIcon: () => ( <Ionicons name="home-outline" size={20} />),headerShown:null}}/>
+                    <Tab.Screen name={'Profile'} component={Profile} options={{tabBarIcon: () => ( <Ionicons name="home-outline" size={20} />),headerShown:null}}/>
+
                 </Tab.Navigator>
                 )
         }

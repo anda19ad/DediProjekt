@@ -11,6 +11,8 @@ import LogIn from "./LogIn";
 
 
 function ProfileScreen({navigation}) {
+//console.log(firebase.auth().currentUser.email)
+
 
     //Creating a function to handle log out. Predefined method by firebase
     const logOut = async()=>{
