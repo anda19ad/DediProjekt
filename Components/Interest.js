@@ -10,7 +10,7 @@ import firebase from "firebase";
          if (users.length === 0 || !users){
              firebase
                  .database()
-                 .ref('/Users')
+                 .ref(`/Users/`)
                  .on('value', snapshot => {
                      setUser(snapshot.val())
                  });
@@ -22,6 +22,7 @@ import firebase from "firebase";
          return <Text>Loading matches...</Text>
      }
 
+     //Not in use at the moment. See excercis 5 for how it can come in handy
      const handleSelectUser = id =>{
          const user = Object.entries(users).find( user => user[0] === id /*id*/)
          navigation.navigate('Login', { user });
@@ -31,6 +32,8 @@ import firebase from "firebase";
 
      const userArray = Object.values(users);
      const userKeys = Object.keys(users);
+     console.log(userKeys)
+
 
      return (
          <FlatList
@@ -40,7 +43,7 @@ import firebase from "firebase";
                  return(
                      <TouchableOpacity style={styles.container} >
                          <Text>
-                             {item.email} {item.password}
+                             {item.email}
                          </Text>
                      </TouchableOpacity>
                  )

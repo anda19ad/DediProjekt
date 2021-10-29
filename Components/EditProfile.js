@@ -1,19 +1,10 @@
-import React from 'react';
-import {Button, StyleSheet, Text, View, TextInput} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {Button, StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native';
 import firebase from "firebase";
-//import UploadScreen from './src/screens/UploadScreen';
 
 export default function EditProfile({navigation,route}) {
-    //Function for getting current user ID so the information can be changed
-    // Get current username
-    //var user = firebase.auth().currentUser;
-
-
-    //For inspiration to upload image https://www.instamobile.io/mobile-development/react-native-firebase-storage/
-
-
     //Navigation function for going to the login screen
-    const navigateToLogin = () =>{
+    const navigateToLogin = ({navigation,route}) =>{
         navigation.navigate('Login')
     };
 
@@ -31,49 +22,96 @@ export default function EditProfile({navigation,route}) {
     const currentUser = (firebase.auth().currentUser.email);
 
     //Const containing the current users unique user id. A fail is here
-    const currentId = firebase.auth().currentUser.uid;
+    const nowId = firebase.auth().currentUser.uid;
 
+    //Creating a useState to be used when looking in the database
+    const [users,setUser] = useState([]);
 
-    //Creating const for attaching the name to the database
-    const editProfile = route.name === "Add or edit profileInfo";
-
-    //function that should be activated with a button for uploading data to database
-    const submitToObject = async ()=>{
-
-
-        try{
-            const Id = route.params.Users[0];
+    //finding all users in the database
+    useEffect(() => {
+        if (users.length === 0 || !users){
             firebase
                 .database()
-                .ref(`/Users/${Id}`)
-                .update(firstName,lastName)
-            navigation.navigate('Profile Screen')
+                .ref(`/Users/`)
+                .on('value', snapshot => {
+                    setUser(snapshot.val())
+                });
         }
-        catch(error){
+
+    },[]);
+
+    //alle data in Users collection
+    const userObjects = Object.keys
+
+    //Passing the users into an array
+    const userArray = Object.values(users);
+
+    //Finding the current id that the user is logged in with and filtering the array
+    const userObject = userArray.filter(obj=>{
+        return obj.uuid===nowId
+    });
+
+    const stringUserObject = JSON.stringify(userObject);
+    //console.log(userObject);
+
+
+    const [firstName,setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+
+
+    const updateProfile = () =>{
+        const id = "-Mn5dObkz61V-5Kor8sk";
+        const objectId = Object.values(userObject);
+        console.log(objectId);
+
+        try{
+
+            firebase
+                .database()
+                .ref(`/Users/${id}`)
+                // we use update so that it is only the fields we change that changes
+                .update({ firstName, lastName })
+                .then(
+                    navigation.navigate('Profile Screen')
+                )
+
+        } catch(error){
             console.log(error)
         }
+        }
+
+    const editButton = () => {
+        return <Button onPress = {() => updateProfile()} title = "Edit Profile" />
     }
+
+
+
 
     return (
         <View style={styles.container}>
+
             <Text>Logged in as: {currentUser} </Text>
-            <Text>Logged in as: {currentId} </Text>
-            <Text>Edit your Profile</Text>
+            <Text>Logged in as: {nowId} </Text>
+            <Text>Edit your Profile: </Text>
+
             <TextInput
-                placeholder="First Name"
+                placeholder="first name"
                 value={firstName}
                 onChangeText={(firstName) => setFirstName(firstName)}
                 style={styles.inputField}
             />
+
             <TextInput
-                placeholder="email"
+                placeholder="last name"
                 value={lastName}
-                onChangeText={(lastName) => setLastName(email)}
+                onChangeText={(lastName) => setLastName(lastName)}
                 style={styles.inputField}
             />
+            {editButton()}
         </View>
     );
 }
+
 
 const styles = StyleSheet.create({
     container: {
@@ -82,5 +120,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: 10,
+    },
+    input: {
+        borderWidth: 1,
+        padding:5,
+        flex: 1
     },
 });
