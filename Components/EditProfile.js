@@ -72,9 +72,9 @@ export default function EditProfile({navigation,route}) {
                 .database()
                 .ref(`/Users/${id}`)
                 // we use update so that it is only the fields we change that changes
-                .update({ firstName, lastName, /*_image*/ })
+                .update({ firstName, lastName, _image })
                 .then(
-                    /*navigation.navigate('Profile Screen')*/
+                    navigation.navigate('Profile Screen')
                 )
 
         } catch(error){
