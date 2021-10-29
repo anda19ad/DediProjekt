@@ -257,6 +257,7 @@ export default StyleSheet.create({
 	// CONTAINER - HOME
 	containerHome: { marginHorizontal: 10 },
 
+
 	// CONTAINER - MATCHES
 	containerMatches: {
 		justifyContent: "space-between",

@@ -3,7 +3,7 @@ module.exports = [
 		id: 1,
 		name: 'Sarah Hansen',
 		status: 'Online',
-		match: '78',
+		match: '70%',
 		description:
 			'Nyder at rejse verden tynd med familie og venner.',
 		message:
@@ -13,7 +13,7 @@ module.exports = [
 	{
 		id: 2,
 		name: 'Benedict Cumberbatch',
-		match: '93',
+		match: '93%',
 		description:
 			'hej hej hej',
 		status: 'Offline',
@@ -23,7 +23,7 @@ module.exports = [
 	{
 		id: 3,
 		name: 'Stan Lee',
-		match: '45',
+		match: '45%',
 		description:
 			'elsker livet, psych...',
 		status: 'Offline',
@@ -34,7 +34,7 @@ module.exports = [
 	{
 		id: 4,
 		name: 'John Elton',
-		match: '88',
+		match: '88%',
 		description:
 			'Part time Singer/Dancer.',
 		status: 'Online',
