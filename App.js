@@ -101,13 +101,13 @@ function App({navigation}) {
         }else{
             return(
                 <Tab.Navigator initialRouteName = "Profile Screen">
-                    <Tab.Screen name={'Edit Profile'} component={EditProfile} options={{tabBarIcon: () => ( <Ionicons name="home-outline" size={20} />),headerShown:null}}/>
+                    <Tab.Screen name={'Edit Profile'} component={EditProfile} options={{tabBarIcon: () => ( <Ionicons name="create-outline" size={20} />),headerShown:null}}/>
+
+                    <Tab.Screen name={'Explore'} component={Home} options={{tabBarIcon: () => ( <Ionicons name="search-outline" size={20} />),headerShown:null}}/>
+                    <Tab.Screen name={'Connections'} component={Matches} options={{tabBarIcon: () => ( <Ionicons name="heart-outline" size={20} />),headerShown:null}}/>
+                    <Tab.Screen name={'Chat'} component={Messages} options={{tabBarIcon: () => ( <Ionicons name="chatbubbles-outline" size={20} />),headerShown:null}}/>
                     <Tab.Screen name={'Profile Screen'} children={() => <ProfileScreen user={user} />} options={{tabBarIcon: () => ( <Ionicons name="home-outline" size={20} />),headerShown:null}}/>
-                    <Tab.Screen name={'Settings'} component={stackNav} options={{tabBarIcon: () => ( <Ionicons name="settings-outline" size={20} />),headerShown:null}}/>
-                    <Tab.Screen name={'Home'} component={Home} options={{tabBarIcon: () => ( <Ionicons name="settings-outline" size={20} />),headerShown:null}}/>
-                    <Tab.Screen name={'Connections'} component={Matches} options={{tabBarIcon: () => ( <Ionicons name="home-outline" size={20} />),headerShown:null}}/>
-                    <Tab.Screen name={'Chat'} component={Messages} options={{tabBarIcon: () => ( <Ionicons name="home-outline" size={20} />),headerShown:null}}/>
-                    <Tab.Screen name={'Profile'} component={Profile} options={{tabBarIcon: () => ( <Ionicons name="home-outline" size={20} />),headerShown:null}}/>
+                    <Tab.Screen name={'Profile'} component={Profile} options={{tabBarIcon: () => ( <Ionicons name="person-outline" size={20} />),headerShown:null}}/>
 
                 </Tab.Navigator>
                 )
