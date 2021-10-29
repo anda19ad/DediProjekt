@@ -101,6 +101,7 @@ function App({navigation}) {
                     <Tab.Screen name={'Profile Screen'} children={() => <ProfileScreen user={user} />} options={{tabBarIcon: () => ( <Ionicons name="home-outline" size={20} />),headerShown:null}}/>
                     <Tab.Screen name={'Settings'} component={stackNav} options={{tabBarIcon: () => ( <Ionicons name="settings-outline" size={20} />),headerShown:null}}/>
                     <Tab.Screen name={'Home'} component={Home} options={{tabBarIcon: () => ( <Ionicons name="settings-outline" size={20} />),headerShown:null}}/>
+                    <Tab.Screen name={'Connections'} component={Matches} options={{tabBarIcon: () => ( <Ionicons name="settings-outline" size={20} />),headerShown:null}}/>
                 </Tab.Navigator>
                 )
         }

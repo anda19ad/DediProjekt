@@ -1,28 +1,28 @@
 import React from 'react';
-import styles from '../assets/style';
+import styles from '../assets/styles';
 
 import {
   ScrollView,
-  View,
   Text,
   TouchableOpacity,
   ImageBackground,
+  View,
   FlatList
 } from 'react-native';
-import CardItem from '../Components/CardItem';
-import Icon from '../Components/Icon';
+import Message from '../components/Message';
+import Icon from '../components/Icon';
 import Demo from '../assets/data/demo.js';
 
-const Matches = () => {
+const Messages = () => {
   return (
     <ImageBackground
-      source={require('../assets/data/demo')}
+      source={require('../assets/images/bg.png')}
       style={styles.bg}
     >
-      <View style={styles.containerMatches}>
+      <View style={styles.containerMessages}>
         <ScrollView>
           <View style={styles.top}>
-            <Text style={styles.title}>Connections</Text>
+            <Text style={styles.title}>Messages</Text>
             <TouchableOpacity>
               <Text style={styles.icon}>
                 <Icon name="optionsV" />
@@ -31,16 +31,14 @@ const Matches = () => {
           </View>
 
           <FlatList
-            numColumns={2}
             data={Demo}
             keyExtractor={(item, index) => index.toString()}
             renderItem={({ item }) => (
               <TouchableOpacity>
-                <CardItem
+                <Message
                   image={item.image}
                   name={item.name}
-                  status={item.status}
-                  variant
+                  lastMessage={item.message}
                 />
               </TouchableOpacity>
             )}
@@ -51,4 +49,4 @@ const Matches = () => {
   );
 };
 
-export default Matches;
+export default Messages;

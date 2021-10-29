@@ -15,10 +15,14 @@ const slidingHandler = (value) => {
   console.log(value)
   if (value >= 5) {
     console.log('if')
-    swiper.current.props.o
+    swiper.current.props.onSwipedRight()
+    console.log(Demo)
+    Demo.pop()
   } else {
     console.log('else')
     swiper.current.props.onSwipedLeft()}
+        Demo.pop()
+
 }
 
   return (
