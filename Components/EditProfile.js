@@ -52,6 +52,9 @@ export default function EditProfile({navigation,route}) {
         return obj.uuid===nowId
     });
 
+    /*Gå ind i obj med entries, filterer arr hvis det ikke matcher login id, og gå et step ind */
+    const filteredUserWhichMatchFireBaseID = Object.entries(users).filter(user => user[1].uuid === nowId)[0]
+
     const stringUserObject = JSON.stringify(userObject);
     //console.log(userObject);
 
@@ -60,10 +63,8 @@ export default function EditProfile({navigation,route}) {
     const [lastName, setLastName] = useState('');
 
 
-    const updateProfile = () =>{
-        const id = "-MnBt95DbpSycBN5sRng";
-        const objectId = userObject;
-        console.log(objectId);
+    const updateProfile = () => {
+        const id = filteredUserWhichMatchFireBaseID[0];
 
         try{
 
@@ -71,15 +72,15 @@ export default function EditProfile({navigation,route}) {
                 .database()
                 .ref(`/Users/${id}`)
                 // we use update so that it is only the fields we change that changes
-                .update({ firstName, lastName, _image })
+                .update({ firstName, lastName, /*_image*/ })
                 .then(
-                    navigation.navigate('Profile Screen')
+                    /*navigation.navigate('Profile Screen')*/
                 )
 
         } catch(error){
             console.log(error)
         }
-        }
+    }
 
     const editButton = () => {
         return <Button onPress = {() => updateProfile()} title = "Edit Profile" />
