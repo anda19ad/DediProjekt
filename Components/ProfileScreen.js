@@ -13,6 +13,7 @@ import LogIn from "./LogIn";
 function ProfileScreen({navigation}) {
 //console.log(firebase.auth().currentUser.email)
 
+
     //Creating a function to handle log out. Predefined method by firebase
     const logOut = async()=>{
         await firebase.auth().signOut()
@@ -27,8 +28,6 @@ function ProfileScreen({navigation}) {
     const navigateToLogin = () =>{
         navigation.navigate('Login')
     };
-
-    //Looping through the users from the real time database.
 
     //If it is not possible to access the wanted user
     if (!firebase.auth().currentUser) {
