@@ -22,25 +22,20 @@ import Demo from '../assets/data/demo.js';
 
 const Profile = ({navigation}) => {
   const {
-    age,
-    image,
-    info1,
-    info2,
-    info3,
-    info4,
-    location,
-    match,
-    name
-  } = Demo[7];
+    firstName,
+    _image,
+    lastName,
+    bio,
+  } = userObject[0];
 
   return (
     <ImageBackground
-        source={userObject[0]._image}
+        source={_image}
 
       style={styles.bg}
     >
       <ScrollView style={styles.containerProfile}>
-        <ImageBackground source={userObject[0]._image} style={styles.photo}>
+        <ImageBackground source={_image} style={styles.photo}>
           <View style={styles.top}>
             <TouchableOpacity>
             <Button onPress={() => logOut()} title="Log out" />
@@ -57,14 +52,8 @@ const Profile = ({navigation}) => {
         </ImageBackground>
 
         <ProfileItem
-          matches={match}
-          name={name}
-          age={age}
-          location={location}
-          info1={info1}
-          info2={info2}
-          info3={info3}
-          info4={info4}
+          name={firstName +" " + lastName}
+          info1={bio}
         />
 
         <View style={styles.actionsProfile}>

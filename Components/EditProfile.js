@@ -61,7 +61,7 @@ export default function EditProfile({navigation,route}) {
 
     const [firstName,setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
-
+    const [bio, setBio] = useState('');
 
     const updateProfile = () => {
         const id = filteredUserWhichMatchFireBaseID[0];
@@ -72,7 +72,7 @@ export default function EditProfile({navigation,route}) {
                 .database()
                 .ref(`/Users/${id}`)
                 // we use update so that it is only the fields we change that changes
-                .update({ firstName, lastName, _image })
+                .update({ firstName, lastName, _image, bio })
                 .then(
                     navigation.navigate('Profile Screen')
                 )
@@ -107,6 +107,12 @@ export default function EditProfile({navigation,route}) {
                 placeholder="last name"
                 value={lastName}
                 onChangeText={(lastName) => setLastName(lastName)}
+                style={styles.inputField}
+            />
+            <TextInput
+                placeholder="Tell something about your self"
+                value={bio}
+                onChangeText={(bio) => setBio(bio)}
                 style={styles.inputField}
             />
             <UploadImage/>
