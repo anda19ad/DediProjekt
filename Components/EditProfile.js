@@ -48,7 +48,7 @@ export default function EditProfile({navigation,route}) {
     const userArray = Object.values(users);
 
     //Finding the current id that the user is logged in with and filtering the array
-    const userObject = userArray.filter(obj=>{
+    global.userObject = userArray.filter(obj=>{
         return obj.uuid===nowId
     });
 

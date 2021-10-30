@@ -35,11 +35,12 @@ const Profile = ({navigation}) => {
 
   return (
     <ImageBackground
-      source={require('../images/bg.png')}
+        source={userObject[0]._image}
+
       style={styles.bg}
     >
       <ScrollView style={styles.containerProfile}>
-        <ImageBackground source={image} style={styles.photo}>
+        <ImageBackground source={userObject[0]._image} style={styles.photo}>
           <View style={styles.top}>
             <TouchableOpacity>
             <Button onPress={() => logOut()} title="Log out" />
