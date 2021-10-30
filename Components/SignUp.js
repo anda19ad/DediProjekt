@@ -10,6 +10,7 @@ function SignUp() {
     const [password, setPassword] = useState('');
     const [firstName,setFirstName] = useState('Inkog');
     const [lastName, setLastName] = useState('nito');
+    const [bio, setBio] = useState('Bla bla bla bla bla bla bla bla bla');
     const [_image,setImage] = useState('');
     const [isCompleted, setCompleted] = useState(false);
     const [errorMessage, setErrorMessage] = useState(null);
@@ -31,7 +32,8 @@ function SignUp() {
                         password,
                         firstName,
                         lastName,
-                        _image
+                        _image,
+                        bio,
                         })
                 })
              //This function works but is not enough
