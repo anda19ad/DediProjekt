@@ -93,6 +93,7 @@ function App({navigation}) {
     const forNavigationContainer = ()=>{
         if(!user.loggedIn){
             return(
+               
                 <Tab.Navigator initialRouteName = "Login">
                     <Tab.Screen name={'Login'} component={LogIn} options={{tabBarIcon: () => ( <Ionicons name="log-in-outline" size={20} />),headerShown:null}}/>
                     <Tab.Screen name={'Sign Up'} component={SignUp} options={{tabBarIcon: () => ( <Ionicons name="add" size={20} />),headerShown:null}}/>

@@ -1,5 +1,5 @@
-import React, {useRef, useState} from 'react';
-import { View, ImageBackground } from 'react-native';
+import React, {useRef, useState, useEffect} from 'react';
+import { View, ImageBackground, ScrollView } from 'react-native';
 import CardStack, { Card } from 'react-native-card-stack-swiper';
 import City from '../Components/City';
 import Filters from '../Components/Filters';
@@ -11,40 +11,45 @@ import Slider from '@react-native-community/slider';
 var DemoUsers = Demo;
 
 const Home = () => {
-  const swiper = useRef(null)
+
+
+const swiper = useRef({current: {props: {onSwipedRight: () => console.log('props')}}})
+const [users, setUsers] = useState(null)
+//useEffect hooket, er en life-cycle method, hvilket betyder, at den kører, hver gang "depencies ændrer sig"
+useEffect(() =>{
+  console.log("on effect")
+  setUsers(DemoUsers)
+}, [])
 
 const slidingHandler = (value) => {
-  console.log(value)
+  console.log(parseInt(value))
   if (value >= 5) {
     console.log('if')
-     
+     console.log(swiper)
     swiper.current.props.onSwipedRight()
     DemoUsers.splice();
+    setUsers(users => users.filter((_, i) => i !== users.length -1))
+
   } else {
     console.log('else')
     swiper.current.props.onSwipedLeft()}
 
 }
 
+console.log(users)
   return (
     <ImageBackground
       source={require('../images/bg.png')}
       style={styles.bg}
     >
-      <View style={styles.containerHome}>
+      <ScrollView style={styles.containerHome}>
         <View style={styles.top}>
           <City />
           <Filters />
         </View>
 
-        <CardStack
-          loop={true}
-          verticalSwipe={false}
-          renderNoMoreCards={() => null}
-          ref={swiper}
-        > 
 
-          {Demo.map((item, index) => (
+          {users && users.map((item, index) => (
             <Card key={index}>
               {/* Nedenfor laves profil kortet med relevante data og funktionalitet*/}
               <CardItem 
@@ -66,7 +71,7 @@ const slidingHandler = (value) => {
           ))}
           
         
-        </CardStack>
+
        {/* Nedenfor laves slideren baseret på react-native-community library*/}
         <Slider
           style={{width: 200, height: 40, paddingTop: 1000, alignItems: 'center'}}
@@ -82,7 +87,7 @@ const slidingHandler = (value) => {
           }
         }
         />
-      </View>
+      </ScrollView>
     </ImageBackground>
   );
 };
