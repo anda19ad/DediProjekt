@@ -17,12 +17,13 @@ const slidingHandler = (value) => {
   console.log(value)
   if (value >= 5) {
     console.log('if')
-     
-    swiper.current.props.onSwipedRight()
+    console.log(swiper.current)
+    swiper.current.swipeRight()
     DemoUsers.splice();
   } else {
     console.log('else')
-    swiper.current.props.onSwipedLeft()}
+    swiper.current.swipeLeft()
+  }
 
 }
 

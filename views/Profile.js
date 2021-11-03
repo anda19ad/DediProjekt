@@ -35,7 +35,7 @@ const Profile = ({navigation}) => {
       style={styles.bg}
     >
       <ScrollView style={styles.containerProfile}>
-        <ImageBackground source={_image} style={styles.photo}>
+        <ImageBackground source={"./views/bg.png"} style={styles.photo}>
           <View style={styles.top}>
             <TouchableOpacity>
             <Button onPress={() => logOut()} title="Log out" />
