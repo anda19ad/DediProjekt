@@ -100,7 +100,7 @@ function App({navigation}) {
         }else{
             return(
                 <Tab.Navigator initialRouteName = 'Explore'>
-                    <Tab.Screen name='Edit Profile' component={EditProfile} options={{tabBarIcon: () => ( <Ionicons name="create-outline" size={20} />),headerShown:null}}/>
+                    {/* <Tab.Screen name='Edit Profile' component={EditProfile} options={{tabBarIcon: () => ( <Ionicons name="create-outline" size={20} />),headerShown:null}}/> */}
                     <Tab.Screen name='Explore' component={Home} options={{tabBarIcon: () => ( <Ionicons name="search-outline" size={20} />),headerShown:null}}/>
                     <Tab.Screen name='Connections' component={Matches} options={{tabBarIcon: () => ( <Ionicons name="heart-outline" size={20} />),headerShown:null}}/>
                     <Tab.Screen name='Chat' component={Messages} options={{tabBarIcon: () => ( <Ionicons name="chatbubbles-outline" size={20} />),headerShown:null}}/>

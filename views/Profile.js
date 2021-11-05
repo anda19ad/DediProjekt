@@ -20,6 +20,8 @@ import Demo from '../assets/data/demo.js';
         await firebase.auth().signOut()
     };
 
+
+
 const Profile = ({navigation}) => {
   const {
     firstName,
@@ -27,6 +29,10 @@ const Profile = ({navigation}) => {
     lastName,
     bio,
   } = userObject[0];
+
+  const navEdit = ()=>{
+    navigation.navigate('Edit Profile');
+  };
 
   return (
     <ImageBackground
@@ -44,8 +50,8 @@ const Profile = ({navigation}) => {
             </TouchableOpacity>
 
             <TouchableOpacity>
+              <Button onPress={() => navEdit()} title="Edit Profile" />
               <Text style={styles.topIconRight}>
-                <Icon name="optionsV" />
               </Text>
             </TouchableOpacity>
           </View>
