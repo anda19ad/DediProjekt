@@ -1,8 +1,7 @@
-import React from 'react';
+import React, {useState, useEffect, Component} from 'react';
 import styles from '../assets/style';
 import firebase from 'firebase';
 import Ionicons from "react-native-vector-icons/Ionicons";
-
 import {
   ScrollView,
   View,
@@ -16,19 +15,26 @@ import Icon from '../Components/Icon';
 import Demo from '../assets/data/demo.js';
 
 
-  const logOut = async()=>{
-        await firebase.auth().signOut()
-    };
-
-
-
 const Profile = ({navigation}) => {
+
+  const logOut = async()=>{
+    await firebase.auth().signOut()
+  };
+
+
   const {
     firstName,
     _image,
     lastName,
     bio,
   } = userObject[0];
+
+  /*const {
+    firstName,
+    _image,
+    lastName,
+    bio,
+  } = Demo[9];*/
 
   const navEdit = ()=>{
     navigation.navigate('Edit Profile');
