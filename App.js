@@ -80,11 +80,9 @@ function App({navigation}) {
 
     const stackNav = ()=> {
         return(
-            <Stack.Navigator>
-                <Stack.Screen name={'Login'} component={LogIn}/>
-                <Stack.Screen name={'Sign Up'} component={SignUp}/>
+            <Stack.Navigator initialRouteName = 'Profile'>
                 <Stack.Screen name={'Edit Profile'} component={EditProfile}/>
-                <Stack.Screen name={'Profile Screen'} component={ProfileScreen}/> 
+                <Stack.Screen name={'Profile'} component={Profile}/>
                 <Stack.Screen name={'Chat'} component={Messages}/>
             </Stack.Navigator>
         )
@@ -101,13 +99,13 @@ function App({navigation}) {
 
         }else{
             return(
-                <Tab.Navigator initialRouteName = "Profile Screen">
-                    <Tab.Screen name={'Edit Profile'} component={EditProfile} options={{tabBarIcon: () => ( <Ionicons name="create-outline" size={20} />),headerShown:null}}/>
-                    <Tab.Screen name={'Explore'} component={Home} options={{tabBarIcon: () => ( <Ionicons name="search-outline" size={20} />),headerShown:null}}/>
-                    <Tab.Screen name={'Connections'} component={Matches} options={{tabBarIcon: () => ( <Ionicons name="heart-outline" size={20} />),headerShown:null}}/>
-                    <Tab.Screen name={'Chat'} component={Messages} options={{tabBarIcon: () => ( <Ionicons name="chatbubbles-outline" size={20} />),headerShown:null}}/>
-                    <Tab.Screen name={'Profile Screen'} children={() => <ProfileScreen user={user} />} options={{tabBarIcon: () => ( <Ionicons name="home-outline" size={20} />),headerShown:null}}/>
-                    <Tab.Screen name={'Profile'} component={Profile} options={{tabBarIcon: () => ( <Ionicons name="person-outline" size={20} />),headerShown:null}}/>
+                <Tab.Navigator initialRouteName = 'Explore'>
+                    <Tab.Screen name='Edit Profile' component={EditProfile} options={{tabBarIcon: () => ( <Ionicons name="create-outline" size={20} />),headerShown:null}}/>
+                    <Tab.Screen name='Explore' component={Home} options={{tabBarIcon: () => ( <Ionicons name="search-outline" size={20} />),headerShown:null}}/>
+                    <Tab.Screen name='Connections' component={Matches} options={{tabBarIcon: () => ( <Ionicons name="heart-outline" size={20} />),headerShown:null}}/>
+                    <Tab.Screen name='Chat' component={Messages} options={{tabBarIcon: () => ( <Ionicons name="chatbubbles-outline" size={20} />),headerShown:null}}/>
+                    {/*<Tab.Screen name={'Profile Screen'} children={() => <ProfileScreen user={user} />} options={{tabBarIcon: () => ( <Ionicons name="home-outline" size={20} />),headerShown:null}}/>*/}
+                    <Tab.Screen name='Profile' component={stackNav} options={{tabBarIcon: () => ( <Ionicons name="person-outline" size={20} />),headerShown:null}}/>
                 </Tab.Navigator>
                 )
         }
