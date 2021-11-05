@@ -78,8 +78,10 @@ const Home = () => {
             /* Slideren laves her, fordi den skal ligge inde i samme <view> for at virke ordentligt. Hvis den fjernes herfra vil den ikke kende næste objekt der skal vises.*/
 
           </CardStack>
-          {/* Nedenfor laves slideren baseret på react-native-community library*/}
+          /* Nedenfor laves slideren baseret på react-native-community library*/
+
           <Slider
+
               style={{paddingTop: 1000}}
               trackStyle={styles.track}
               thumbStyle={styles.thumb}
