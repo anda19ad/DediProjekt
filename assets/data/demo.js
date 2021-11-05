@@ -3,9 +3,9 @@ module.exports = [
 		id: 1,
 		name: 'Sarah Hansen',
 		status: 'Online',
-		match: '70%',
+		match: 'Hedonist',
 		description:
-			'Nyder at rejse verden tynd med familie og venner.',
+			'Hanging out with friends and drinking Latté',
 		message:
 			'I will go back to Gotham and I will fight men Iike this but I will not become an executioner.',
 		image: require('../../images/01.png')
@@ -13,9 +13,9 @@ module.exports = [
 	{
 		id: 2,
 		name: 'Benedict Cumberbatch',
-		match: '93%',
+		match: 'Crime series',
 		description:
-			'hej hej hej',
+			'I don´t need much time to judge you or anyone else',
 		status: 'Offline',
 		message: "Someone like you. Someone who'll rattle the cages.",
 		image: require('../../images/02.png')
@@ -23,9 +23,9 @@ module.exports = [
 	{
 		id: 3,
 		name: 'Stan Lee',
-		match: '45%',
+		match: 'Party',
 		description:
-			'elsker livet, psych...',
+			'Life is dope, life is good. Maybe with you?',
 		status: 'Offline',
 		message:
 			'Oh, hee-hee, aha. Ha, ooh, hee, ha-ha, ha-ha. And I thought my jokes were bad.',
@@ -34,19 +34,19 @@ module.exports = [
 	{
 		id: 4,
 		name: 'John Elton',
-		match: '88%',
+		match: 'Fantasy books',
 		description:
-			'Part time Singer/Dancer.',
+			'Part time Singer/Dancer',
 		status: 'Online',
 		message: "Bats frighten me. It's time my enemies shared my dread.",
 		image: require('../../images/04.png')
 	},
 	{
 		id: 5,
-		name: 'James Kirktzen',
-		match: '76',
+		name: 'Christine Kirktzen',
+		match: 'Fancy Restaurants',
 		description:
-			'Globe Trotter.',
+			'Wind in the hair',
 		status: 'Offline',
 		message: "It's not who I am underneath but what I do that defines me.",
 		image: require('../../images/05.png')
@@ -54,32 +54,32 @@ module.exports = [
 	{
 		id: 6,
 		name: 'Patrick Andersen',
-		match: '95',
+		match: 'Travel',
 		description:
-			'Occasional Photographer',
+			'Occasional Photographer and full time adventurer',
 		status: 'Online',
 		message:
-			'You have nothing, nothing to threaten me with. Nothing to do with all your strength.',
+			'You have nothing, nothing to threaten me with. Except from a good cigar',
 		image: require('../../images/06.png')
 	},
 	{
 		id: 7,
-		name: 'Ceejay',
-		match: '67',
+		name: 'Grethe Maggie',
+		match: 'Royal',
 		description:
-			'Singer',
+			'Everyone is allowed to be a little royal, right?',
 		status: 'Online',
 		message:
-			"Never start with the head. The victim gets all fuzzy. He can't feel the next... See?",
+			"I smoke wherever there's an ashtray.",
 		image: require('../../images/07.png')
 	},
 	{
 		id: 8,
-		name: 'Nikoline Robertus',
-		match: '85',
+		name: 'Niko Robertus',
+		match: 'Paddle boarding',
 		description:
-			'Doven',
-		age: '27',
+			'Paddle boarding while saying wise stuff',
+		age: '47',
 		location: 'Pasadena, CA',
 		info1: '5"10',
 		info2: 'Travel',
@@ -92,24 +92,26 @@ module.exports = [
 	},
 	{
 		id: 9,
-		name: 'Glendall',
-		match: '74',
+		name: 'Emma Glendall',
+		match: 'Movies',
 		description:
-			'i like baking cakes.',
+			'Pretending to be serious, although i am not',
 		status: 'Online',
 		message:
-			'This is what happens when an unstoppable force meets an immovable object.',
+			'My opinion is that more languages you speak, better it is, but when you come to America, you speak English.',
 		image: require('../../images/09.png')
 	},
 	{
 		id: 10,
 		name: 'Kurtis Mayfield',
 		match: '98',
+		name: 'Kurtis Mayfiel',
+		match: 'Acting',
 		description:
-			'ok ok',
+			'Are you not entertained?!',
 		status: 'Offline',
 		message:
-			'You want order in Gotham. Batman must take off his mask and turn himself in.',
+			'My name is Maximus Decimus Meridius, commander of the Armies of the North, General of the Felix Legions',
 		image: require('../../images/10.png')
 	}
 ];

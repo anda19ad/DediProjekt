@@ -51,7 +51,7 @@ const CardItem = ({
       {matches && (
         <View style={styles.matchesCardItem}>
           <Text style={styles.matchesTextCardItem}>
-            <Icon name="heart" /> {matches}% Match!
+            <Icon name="heart" /> {matches}
           </Text>
         </View>
       )}
