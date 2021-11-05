@@ -74,7 +74,7 @@ export default function EditProfile({navigation,route}) {
                 // we use update so that it is only the fields we change that changes
                 .update({ firstName, lastName, _image, bio })
                 .then(
-                    navigation.navigate('Profile Screen')
+                    navigation.navigate('Profile')
                 )
 
         } catch(error){
