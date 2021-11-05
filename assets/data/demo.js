@@ -103,7 +103,7 @@ module.exports = [
 	},
 	{
 		id: 10,
-		name: 'Kurtis Mayfiel',
+		name: 'Kurtis Mayfield',
 		match: '98',
 		description:
 			'ok ok',
