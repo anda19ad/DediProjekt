@@ -41,8 +41,6 @@ export default function EditProfile({navigation,route}) {
 
     },[]);
 
-    //alle data in Users collection
-    const userObjects = Object.keys
 
     //Passing the users into an array
     const userArray = Object.values(users);
@@ -52,18 +50,20 @@ export default function EditProfile({navigation,route}) {
         return obj.uuid===nowId
     });
 
-    /*Gå ind i obj med entries, filterer arr hvis det ikke matcher login id, og gå et step ind */
+    /*Function created with help from Eigil. Going to the objective with entries, filtering the array and matching with auth id*/
     const filteredUserWhichMatchFireBaseID = Object.entries(users).filter(user => user[1].uuid === nowId)[0]
 
+    //Not in use at the moment but good to keep in hand. Stingifyes the user Object
     const stringUserObject = JSON.stringify(userObject);
     //console.log(userObject);
 
-
+    //Use state consts used in the update of the profile
     const [firstName,setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [bio, setBio] = useState('');
 
     const updateProfile = () => {
+        //Using id for reference to firebase
         const id = filteredUserWhichMatchFireBaseID[0];
 
         try{
@@ -82,6 +82,7 @@ export default function EditProfile({navigation,route}) {
         }
     }
 
+    //After styling this button is not in use anymore but is saved for the moment
     const editButton = () => {
         return <Button onPress = {() => updateProfile()} title = "Edit Profile" />
     }
@@ -153,6 +154,7 @@ export default function EditProfile({navigation,route}) {
     );
 }
 
+//Style inspiration from https://www.bootdey.com/react-native-snippet/12/User-profile-with-options and https://www.bootdey.com/react-native-snippet/23/Profile-ui-example
 const styles = StyleSheet.create({
     header:{
         backgroundColor: "#DCDCDC",
@@ -216,7 +218,7 @@ const styles = StyleSheet.create({
         marginBottom:20,
         width:250,
         borderRadius:30,
-        backgroundColor: "#00BFFF",
+        backgroundColor: "#913831",
     },
 });
 
