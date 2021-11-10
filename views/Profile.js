@@ -49,17 +49,13 @@ const Profile = ({navigation}) => {
       <ScrollView style={styles.containerProfile}>
         <ImageBackground source={"./views/bg.png"} style={styles.photo}>
           <View style={styles.top}>
-            <TouchableOpacity>
-            <Button onPress={() => logOut()} title="Log out" />
-              <Text style={styles.topIconLeft}>
+
+            <TouchableOpacity style={styles.circledButton} onPress={() => logOut()} title="Log out">
+              <Text style={styles.iconButton}>
+                <Ionicons name="log-out" size={20}/>
               </Text>
             </TouchableOpacity>
 
-            <TouchableOpacity>
-              <Button onPress={() => navEdit()} title="Edit Profile" />
-              <Text style={styles.topIconRight}>
-              </Text>
-            </TouchableOpacity>
           </View>
         </ImageBackground>
 
@@ -69,15 +65,15 @@ const Profile = ({navigation}) => {
         />
 
         <View style={styles.actionsProfile}>
-          <TouchableOpacity style={styles.circledButton}>
+          <TouchableOpacity style={styles.circledButton} onPress={() => navEdit()} title="Edit Profile">
             <Text style={styles.iconButton}>
-              <Icon name="optionsH" />
+              <Ionicons name="create-outline" size={20}/>
             </Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.roundedButton} onPress={() => navigation.navigate('Chat')}>
             <Text style={styles.iconButton}>
-              <Icon name="chat" />
+              <Ionicons name="chatbubbles" size={20}/>
             </Text>
             <Text style={styles.textButton}>Start chatting</Text>
           </TouchableOpacity>

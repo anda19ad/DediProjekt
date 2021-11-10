@@ -2,13 +2,14 @@ import React from 'react';
 import styles from '../assets/style';
 
 import { Text, TouchableOpacity } from 'react-native';
-import Icon from './Icon';
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 const Filters = () => {
   return (
     <TouchableOpacity style={styles.filters}>
       <Text style={styles.filtersText}>
-        <Icon name="filter" /> Filters
+          <Ionicons name="add" />
+          Filters
       </Text>
     </TouchableOpacity>
   );
