@@ -70,7 +70,7 @@ const slidingHandler = (value) => {
         </CardStack>
        {/* Nedenfor laves slideren baseret på react-native-community library*/}
         <Slider
-          style={{width: 200, height: 40, paddingTop: 1000, alignItems: 'center'}}
+          style={{ height: 40, paddingTop: 1000, alignItems: 'center'}}
 
           minimumValue={1}
           maximumValue={10}

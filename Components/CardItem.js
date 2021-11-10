@@ -2,6 +2,8 @@ import React from 'react';
 import styles from '../assets/style';
 import Slider from '@react-native-community/slider';
 
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import { Text, View, Image, Dimensions, TouchableOpacity, StyleSheet} from 'react-native';
 import Icon from './Icon';
 
@@ -51,7 +53,7 @@ const CardItem = ({
       {matches && (
         <View style={styles.matchesCardItem}>
           <Text style={styles.matchesTextCardItem}>
-            <Icon name="heart" /> {matches}
+            <Ionicons name="heart" /> {matches}
           </Text>
         </View>
       )}

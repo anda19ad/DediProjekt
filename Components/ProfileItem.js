@@ -3,6 +3,7 @@ import styles from '../assets/style';
 
 import { Text, View } from 'react-native';
 import Icon from './Icon';
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 const ProfileItem = ({
   age,
@@ -18,7 +19,7 @@ const ProfileItem = ({
     <View style={styles.containerProfileItem}>
       <View style={styles.matchesProfileItem}>
         <Text style={styles.matchesTextProfileItem}>
-          <Icon name="heart" /> {matches}% Match!
+            <Ionicons name="heart" /> {matches} Dutch Art
         </Text>
       </View>
 
@@ -30,30 +31,30 @@ const ProfileItem = ({
 
       <View style={styles.info}>
         <Text style={styles.iconProfile}>
-          <Icon name="user" />
+            <Ionicons name="information-circle" />
         </Text>
         <Text style={styles.infoContent}>{info1}</Text>
       </View>
 
       <View style={styles.info}>
         <Text style={styles.iconProfile}>
-          <Icon name="circle" />
+            <Ionicons name="heart" />
         </Text>
-        <Text style={styles.infoContent}>{info2}</Text>
+        <Text style={styles.infoContent}>{info2} Personal stuff</Text>
       </View>
 
       <View style={styles.info}>
         <Text style={styles.iconProfile}>
-          <Icon name="hashtag" />
+            <Ionicons name="heart" />
         </Text>
-        <Text style={styles.infoContent}>{info3}</Text>
+        <Text style={styles.infoContent}>{info3} Other personal stuff on a deeper level</Text>
       </View>
 
       <View style={styles.info}>
         <Text style={styles.iconProfile}>
-          <Icon name="calendar" />
+            <Ionicons name="heart" />
         </Text>
-        <Text style={styles.infoContent}>{info4}</Text>
+        <Text style={styles.infoContent}>{info4} Some more interests</Text>
       </View>
     </View>
   );

@@ -1,3 +1,4 @@
+//This whole file is not in use, but is still handy to have
 import {StyleSheet, Text, View, Button} from "react-native";
 import React from "react";
 import firebase from "firebase";
