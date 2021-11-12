@@ -2,6 +2,7 @@ import React, {useState, useEffect, Component} from 'react';
 import {Button, StyleSheet, Text, View, Image, TextInput, TouchableOpacity} from 'react-native';
 import firebase from "firebase";
 import UploadImage from "./FileUpload";
+import Ionicons from "react-native-vector-icons/Ionicons";
 
 export default function EditProfile({navigation,route}) {
     //Navigation function for going to the login screen
@@ -118,13 +119,13 @@ export default function EditProfile({navigation,route}) {
             <View style={styles.body}>
                 <View style={styles.item}>
                     <TouchableOpacity style={styles.buttonContainer} onPress={()=>updateProfile()}>
-                        <Text>Update your profile</Text>
+                        <Text style = {{color: "#FFFFFF", fontSize:18}} >Update your profile</Text>
                     </TouchableOpacity>
                 </View>
 
                 <View style={styles.item}>
                     <View style={styles.iconContent}>
-                        <Image style={styles.icon} source={{uri: 'https://img.icons8.com/color/70/000000/administrator-male.png'}}/>
+                        <Ionicons style={styles.icon} size={25} name="settings" />
                     </View>
                     <View style={styles.infoContent}>
                         <Text style={styles.info}>Settings</Text>
@@ -133,7 +134,7 @@ export default function EditProfile({navigation,route}) {
 
                 <View style={styles.item}>
                     <View style={styles.iconContent}>
-                        <Image style={styles.icon} source={{uri: 'https://img.icons8.com/color/70/000000/filled-like.png'}}/>
+                        <Ionicons style={styles.icon} size={25} name="newspaper" />
                     </View>
                     <View style={styles.infoContent}>
                         <Text style={styles.info}>News</Text>
@@ -142,10 +143,10 @@ export default function EditProfile({navigation,route}) {
 
                 <View style={styles.item}>
                     <View style={styles.iconContent}>
-                        <Image style={styles.icon} source={{uri: 'https://img.icons8.com/color/70/000000/facebook-like.png'}}/>
+                        <Ionicons style={styles.icon} size={25}  name="rocket" />
                     </View>
                     <View style={styles.infoContent}>
-                        <Text style={styles.info}>Shop</Text>
+                        <Text style={styles.info}>Buy Premium</Text>
                     </View>
                 </View>
 
@@ -182,7 +183,7 @@ const styles = StyleSheet.create({
         fontWeight:'600',
     },
     body:{
-        backgroundColor: "#778899",
+        backgroundColor: "#757E90",
         height:500,
         alignItems:'center',
     },
