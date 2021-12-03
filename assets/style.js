@@ -1,5 +1,6 @@
 import { StyleSheet, Dimensions } from "react-native";
 
+//Got inspiration to the style from the card-stack-swiper library/github
 const PRIMARY_COLOR = "#913831";
 const SECONDARY_COLOR = "#FFA500";
 const WHITE = "#FFFFFF";

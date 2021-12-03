@@ -13,6 +13,7 @@ var DemoUsers = Demo;
 const Home = () => {
   const swiper = useRef(null)
 
+  //Making an if statement that activates different functions from the card stack library dependent on the value
 const slidingHandler = (value) => {
   console.log(value)
   if (value >= 5) {
@@ -47,7 +48,7 @@ const slidingHandler = (value) => {
 
           {Demo.map((item, index) => (
             <Card key={index}>
-              {/* Nedenfor laves profil kortet med relevante data og funktionalitet*/}
+              {/* Profile card made with relevant data and functionality*/}
               <CardItem 
                 image={item.image}
                 name={item.name}
@@ -68,7 +69,7 @@ const slidingHandler = (value) => {
           
         
         </CardStack>
-       {/* Nedenfor laves slideren baseret på react-native-community library*/}
+       {/* Creating slider based on the react-native-community-slider library*/}
         <Slider
           style={{ height: 40, paddingTop: 1000, alignItems: 'center'}}
 
@@ -77,8 +78,8 @@ const slidingHandler = (value) => {
           minimumTrackTintColor="#0000FF"
           maximumTrackTintColor="#000000"
           onSlidingComplete={(value) => {
+            //Using the before defined function and putting in the value from the slider
             slidingHandler(value)
-      
             //this.swiper.current.props.slidingHandler()
           }
         }
