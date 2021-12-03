@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, ImageBackground } from 'react-native';
 import firebase from "firebase";
 
 
-//Importing compononents
+//Importing components
 //import InterestList from "./Components/Interest";
 import ProfileScreen from "./Components/ProfileScreen";
 import SignUp from "./Components/SignUp";
@@ -79,6 +79,7 @@ function App({navigation}) {
     const Tab = createBottomTabNavigator();
 
     const stackNav = ()=> {
+        //Creating af stack navigator for profile
         return(
             <Stack.Navigator initialRouteName = 'Profile'>
                 <Stack.Screen name={'Edit Profile'} component={EditProfile}/>
@@ -89,6 +90,7 @@ function App({navigation}) {
     };
 
     const forNavigationContainer = ()=>{
+        //Creating an if statement that shows different screens depending on whether the user is logged in or not
         if(!user.loggedIn){
             return(
                 <Tab.Navigator initialRouteName = "Login">
@@ -98,7 +100,7 @@ function App({navigation}) {
         )
 
         }else{
-
+            //If the user is logged in this is shown
             return(
                 <Tab.Navigator initialRouteName = 'Explore'>
                     <Tab.Screen name='Edit Profile' component={EditProfile} options={{tabBarIcon: () => ( <Ionicons name="create-outline" size={20} />),headerShown:null}}/>

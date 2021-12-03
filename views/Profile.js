@@ -21,7 +21,7 @@ const Profile = ({navigation}) => {
     await firebase.auth().signOut()
   };
 
-
+//Getting an user object from a global variable in EditProfile.js
   const {
     firstName,
     _image,
@@ -29,6 +29,7 @@ const Profile = ({navigation}) => {
     bio,
   } = userObject[0];
 
+  //For test purposes a hardcoded demo profile can be used instead of the firebasedatabase
   /*const {
     firstName,
     _image,
@@ -43,19 +44,16 @@ const Profile = ({navigation}) => {
   return (
     <ImageBackground
         source={_image}
-
       style={styles.bg}
     >
       <ScrollView style={styles.containerProfile}>
         <ImageBackground source={"./views/bg.png"} style={styles.photo}>
           <View style={styles.top}>
-
             <TouchableOpacity style={styles.circledButton} onPress={() => logOut()} title="Log out">
               <Text style={styles.iconButton}>
                 <Ionicons name="log-out" size={20}/>
               </Text>
             </TouchableOpacity>
-
           </View>
         </ImageBackground>
 
